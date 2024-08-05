@@ -1,7 +1,9 @@
 document.getElementById('fetchButton').addEventListener('click', () => {
   const userId = document.getElementById('userIdInput').value;
-  const url = `https://users.roblox.com/v1/users/${userId}`;
-  
+  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+  const targetUrl = `https://users.roblox.com/v1/users/${userId}`;
+  const url = proxyUrl + targetUrl;
+
   fetch(url)
     .then(response => response.json())
     .then(data => {
